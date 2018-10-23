@@ -1,0 +1,23 @@
+{
+  "name": "realtimechat",
+  "version": "1.0.0",
+  "description": "React Real-time chat web-app using websockets",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/barclayd/RealTimeChat.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/barclayd/RealTimeChat/issues"
+  },
+  "homepage": "https://github.com/barclayd/RealTimeChat#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "nodemon": "^1.18.4"
+  }
+}
