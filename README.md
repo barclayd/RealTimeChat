@@ -1,2 +1,2 @@
-# ReactRealTimeChat
-React Real-time chat web-app using websockets
+# RealTimeChat
+Real-time chat web-app using websockets
