@@ -1,5 +1,5 @@
 const express = require('express');
-const webSocket = require('socket.io');
+const socket = require('socket.io');
 const app = express();
 const port = 4000;
 const server = app.listen(port, () => {
@@ -8,14 +8,18 @@ const server = app.listen(port, () => {
 
 app.use(express.static('client'));
 
-// webSocket set-up
-const io = webSocket(server);
+// socket set-up
+const io = socket(server);
 
 io.on('connection', (socket) => {
     console.log('User connected with socket id:', socket.id);
-
+    // handle new chat message
     socket.on('chatMessage', (data) => {
         io.sockets.emit('chatMessage', data);
+    });
+    // handle typign
+    socket.on('typing', (data) => {
+        socket.broadcast.emit('typing', data);
     });
 
     // socket.on('disconnect', () => {
