@@ -6,14 +6,19 @@ const server = app.listen(port, () => {
     console.log(`App is up and ready, listening on port ${port}`);
 });
 
-app.use(express.static('public'));
+app.use(express.static('client'));
 
 // webSocket set-up
 const io = webSocket(server);
 
 io.on('connection', (socket) => {
-    console.log('A user connected with socket id:', socket.id);
-    socket.on('disconnect', () => {
-        console.log('A user disconnected with socket id:', socket.id);
+    console.log('User connected with socket id:', socket.id);
+
+    socket.on('chatMessage', (data) => {
+        io.sockets.emit('chatMessage', data);
     });
+
+    // socket.on('disconnect', () => {
+    //     console.log('User disconnected with socket id:', socket.id);
+    // });
 });
